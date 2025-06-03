@@ -82,7 +82,7 @@ export default function FormPropsTextFields() {
     try {
       dispatch(updateUserStart());
       const response = await fetch(
-        `http://localhost:3600/api/auth/update-user/${currentUser._id}`,
+        `https://vidtrim-backend.onrender.com/api/auth/update-user/${currentUser._id}`,
         {
           method: "PUT",
           body: JSON.stringify(formData),

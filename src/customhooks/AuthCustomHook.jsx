@@ -30,7 +30,7 @@ const authCustomhook = () => {
         console.log("tryyy");
       dispatch(signOutUserStart());
       const response = await fetch(
-        `http://localhost:3600/api/auth/sign-out/${currentUser._id}`,
+        `https://vidtrim-backend.onrender.com/api/auth/sign-out/${currentUser._id}`,
         {
           method: "GET",
           headers: {
@@ -63,7 +63,7 @@ const authCustomhook = () => {
     try {
       dispatch(deleteUserStart());
       const response = await fetch(
-        `http://localhost:3600/api/auth/delete-user/${currentUser._id}`,
+        `https://vidtrim-backend.onrender.com/api/auth/delete-user/${currentUser._id}`,
         {
           method: "DELETE",
           headers: {
