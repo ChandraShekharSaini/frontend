@@ -324,6 +324,7 @@ export default function FormPropsTextFields() {
 
             <div className="w-[90%]  flex flex-col  justify-center items-center sm:flex-row sm:justify-between gap-2 ">
               <TextField
+               autoComplete="on"
                 id="username"
                 label="Username"
                 onChange={handleChange}

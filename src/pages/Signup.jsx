@@ -27,9 +27,9 @@ const Signup = () => {
   const handleClose = () => {
     setOpen(false);
 
-    setTimeout(() => {
+  
       navigate("/create-account/sign-in");
-    }, 1000);
+
   };
   const [formData, setFormData] = useState({});
   const [isLoading, setisLoading] = useState(false);
@@ -49,13 +49,16 @@ const Signup = () => {
 
     try {
       setisLoading(true);
-      const response = await fetch("https://vidtrim-backend-vercel.vercel.app/api/auth/sign-up", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://vidtrim-backend-vercel.vercel.app/api/auth/sign-up",
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          method: "POST",
+          body: JSON.stringify(formData),
+        }
+      );
 
       const data = await response.json();
       console.log(data);
@@ -70,12 +73,9 @@ const Signup = () => {
       if (response.ok) {
         setCredentialDiag(true);
 
-        handleClickOpen();
         setisLoading(false);
 
-          
-          navigate("/create-account/sign-in");
-      
+        handleClickOpen();
       }
     } catch (error) {
       console.log(error);
@@ -85,21 +85,19 @@ const Signup = () => {
 
   return (
     <>
-
-    <ToastContainer
-          position="top-right"
-          autoClose={4000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick={true}
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
+      <ToastContainer
+        position="top-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={true}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
 
       <section className="bg-black flex flex-col justify-center  items-center  h-[110vh]   sm:h-[105vh]  w-screen sm:pr-0 sm:pl-0 ">
-        
         <div className="text-[#eeeeee] font-bold text-2xl mb-6">Sign up</div>
 
         <form
