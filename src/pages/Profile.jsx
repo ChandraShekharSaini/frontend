@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { AiOutlineMenu } from "react-icons/ai";
 import { RxCrossCircled } from "react-icons/rx";
 import DeleteAccountDialog from "../components/DeleteDiaglogBox";
+import { FaCompressArrowsAlt } from "react-icons/fa";
 import LogoutDialog from "../components/LogoutDiaglogBox";
 import Divider from "@mui/material/Divider";
 import {
@@ -183,6 +184,18 @@ export default function FormPropsTextFields() {
               </div>
               <div>
                 <p className="font-mono text-gray hover:text-[#ffffff]">Home</p>
+              </div>
+            </Link>
+
+             <Link
+              to="/video-upload"
+              className="flex flex-row  items-center  gap-4  p-2 cursor-pointer  hover:bg-black hover:text-white"
+            >
+              <div className="bg-orange-600  w-9 h-9 flex  justify-center  items-center rounded-full p-2">
+                <FaCompressArrowsAlt className="text-white" />
+              </div>
+              <div>
+                <p className="font-mono text-gray hover:text-[#ffffff]">Compress Video</p>
               </div>
             </Link>
 

@@ -81,8 +81,8 @@ const Signup = () => {
 
   return (
     <>
-      <section className="bg-black flex flex-col justify-center  items-center  h-[110vh]   sm:h-[105vh]  w-screen sm:pr-0 sm:pl-0 ">
-        <ToastContainer
+
+    <ToastContainer
           position="top-right"
           autoClose={4000}
           hideProgressBar={false}
@@ -94,6 +94,8 @@ const Signup = () => {
           pauseOnHover
         />
 
+      <section className="bg-black flex flex-col justify-center  items-center  h-[110vh]   sm:h-[105vh]  w-screen sm:pr-0 sm:pl-0 ">
+        
         <div className="text-[#eeeeee] font-bold text-2xl mb-6">Sign up</div>
 
         <form

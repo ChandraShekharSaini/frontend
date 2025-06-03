@@ -115,6 +115,7 @@ import Divider from "@mui/material/Divider";
 import authCustomhook from "../customhooks/AuthCustomHook";
 import DeleteAccountDialog from "./DeleteDiaglogBox";
 import LogoutDialog from "./LogoutDiaglogBox";
+import { FaCompressArrowsAlt } from "react-icons/fa";
 
 const FlipBar = (props) => {
   const { currentUser } = useSelector((state) => state.user);
@@ -175,6 +176,20 @@ const FlipBar = (props) => {
             </div>
             <div>
               <p className="font-mono text-gray hover:text-[#ffffff]">Home</p>
+            </div>
+          </Link>
+
+          <Link
+            to="/video-upload"
+            className="flex flex-row  items-center  gap-4  p-2 cursor-pointer  hover:bg-black hover:text-white"
+          >
+            <div className="bg-orange-600  w-9 h-9 flex  justify-center  items-center rounded-full p-2">
+              <FaCompressArrowsAlt className="text-white" />
+            </div>
+            <div>
+              <p className="font-mono text-gray hover:text-[#ffffff]">
+                Compress Video
+              </p>
             </div>
           </Link>
 
