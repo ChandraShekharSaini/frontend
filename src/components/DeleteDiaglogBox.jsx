@@ -8,7 +8,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import DeleteIcon from "@mui/icons-material/Delete";
-
+import Divider from '@mui/material/Divider';
 import authCustomhook from "../customhooks/AuthCustomHook";
 
 export default function DeleteAccountDialog() {
@@ -34,14 +34,16 @@ export default function DeleteAccountDialog() {
 
   return (
     <React.Fragment>
-      <div className="flex flex-row gap-4 p-2  pl-4 ">
+      <div   onClick={handleClickOpen} className="flex flex-row  items-center gap-4 p-2 cursor-pointer  hover:bg-black hover:text-white ">
         <button
-          onClick={handleClickOpen}
+        
           type="button"
-          className="text-white bg-red-600 hover:bg-[#ec090a] p-2  rounded-md"
+          className="text-white bg-red-600 flex justify-center items-center hover:bg-[#ec090a] p-2  rounded-full"
         >
-          <DeleteIcon /> Delete Account
+          <DeleteIcon />
         </button>
+
+        <p  className="font-mono"> Delete Account</p>
       </div>
       <Dialog
         fullScreen={fullScreen}

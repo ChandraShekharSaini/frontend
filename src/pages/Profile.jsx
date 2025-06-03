@@ -13,6 +13,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { RxCrossCircled } from "react-icons/rx";
 import DeleteAccountDialog from "../components/DeleteDiaglogBox";
 import LogoutDialog from "../components/LogoutDiaglogBox";
+import Divider from "@mui/material/Divider";
 import {
   signOutUserStart,
   signOutUserSuccess,
@@ -132,8 +133,8 @@ export default function FormPropsTextFields() {
         </div>
       )}
 
-      <div className="w-full min-h-screen grid grid-cols-10 bg-white  relative">
-        <div className=" flex-col gap-1 h-screen  lg:col-span-2 hidden lg:flex  ">
+      <div className="w-full min-h-screen grid grid-cols-10  relative">
+        <div className=" flex-col gap-1 h-screen  bg-[#b6bec9]  lg:col-span-2 hidden lg:flex  ">
           <div className="flex flex-col gap-4  p-2 ">
             <div className="flex flex-row items-center gap-4">
               {currentUser && (
@@ -143,7 +144,7 @@ export default function FormPropsTextFields() {
                     currentUser?.profilePicture?.defaultImageUrl
                   }
                   alt="userImage"
-                  className="w-14 h-14 rounded-full"
+                  className="w-12 h-12 rounded-full"
                 />
               )}
 
@@ -157,63 +158,56 @@ export default function FormPropsTextFields() {
             </div>
           </div>
 
-          <div className="h-[30%] border-[1px]  flex flex-col gap-4 ">
+             <Divider />
+
+          <div className="flex flex-col  ">
             <Link
               to="/user/dashboard"
-              className="flex flex-row items-center gap-4 border-[2px] border-yellow-400 p-2 cursor-pointer "
+              className="flex flex-row items-center gap-4  p-2 cursor-pointer hover:bg-black hover:text-white"
             >
               <div className="bg-blue-600  w-9 h-9 flex  justify-center  items-center rounded-full p-2">
                 <BsSendDashFill className="text-white" />
               </div>
               <div>
-                <p className="font-mono">Dashboard</p>
+                <p className="font-mono text-gray ">Dashboard</p>
               </div>
             </Link>
+            <Divider />
 
             <Link
               to="/"
-              className="flex flex-row  items-center  gap-4 border-[2px] border-red-900 p-2 cursor-pointer "
+              className="flex flex-row  items-center  gap-4  p-2 cursor-pointer  hover:bg-black hover:text-white"
             >
               <div className="bg-orange-600  w-9 h-9 flex  justify-center  items-center rounded-full p-2">
                 <HomeIcon className="text-white" />
               </div>
               <div>
-                <p className="font-mono">Home</p>
+                <p className="font-mono text-gray hover:text-[#ffffff]">Home</p>
               </div>
             </Link>
-          </div>
 
-          <div className="h-[50%] flex flex-col  justify-end gap-4 border-[2px] ">
-            <div className="flex flex-row items-center gap-4 border-[2px] border-red-900 p-2 cursor-pointer ">
-              <div className="bg-purple-600  w-9 h-9 flex  justify-center  items-center rounded-full p-2">
-                <EmailIcon className="text-white" />
+            <Divider />
+
+            <Link to="/contact" className="hover:bg-black hover:text-white">
+              <div className="flex flex-row items-center gap-4  p-2 cursor-pointer  ">
+                <div className="bg-purple-600  w-9 h-9 flex  justify-center  items-center rounded-full p-2">
+                  <EmailIcon className="text-white " />
+                </div>
+
+                <p className="font-mono text-gray hover:text-[#ffffff]">
+                  Contact Us
+                </p>
               </div>
-              <Link to="/contact">
-                <p className="font-mono">Contact Us</p>
-              </Link>
-            </div>
+            </Link>
 
-            {/* <div className="flex flex-row gap-4  border-[2px] border-red-900   p-2 ">
-              <button
-                onClick={handleLogout}
-                className=" text-white bg-blue-500 hover:bg-[#3065d8] p-2 rounded-md"
-              >
-                <LogoutIcon /> Logout
-              </button>
-            </div> */}
+            <Divider />
 
             <LogoutDialog />
 
-            {/* <div className="flex  flex-row gap-4  border-[2px] border-red-900   p-2 ">
-              <button
-                onClick={handleDelete}
-                className=" text-white bg-red-600 hover:bg-[#ec090a] p-2 rounded-md"
-              >
-                <DeleteIcon /> Delete Account
-              </button>
-            </div> */}
+            <Divider/>
 
             <DeleteAccountDialog />
+            <Divider />
           </div>
         </div>
 
@@ -426,17 +420,12 @@ export default function FormPropsTextFields() {
 
             <button
               onClick={handleSubmit}
-              className="bg-blue-500 text-white p-2 rounded-md w-[90%] "
+              className="bg-blue-500 text-white p-2 rounded-md w-[90%] hover:bg-blue-600"
             >
               Update
             </button>
 
-            <button
-              onClick={handleSubmit}
-              className="bg-blue-500 text-white p-2 rounded-md w-[90%] "
-            >
-              Update
-            </button>
+           
           </div>
         </Box>
 

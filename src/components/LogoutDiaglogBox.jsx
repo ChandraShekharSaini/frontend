@@ -32,14 +32,16 @@ export default function LogoutDialog() {
 
   return (
     <React.Fragment>
-      <div className="flex flex-row gap-4 p-2  pl-4 ">
+      <div    onClick={handleClickOpen} className="flex flex-row items-center gap-4 p-2 cursor-pointer   hover:bg-black hover:text-white">
         <button
           type="button"
-          onClick={handleClickOpen}
-          className="text-white bg-blue-500 hover:bg-[#3065d8] p-2    rounded-md"
+       
+          className="text-white bg-blue-500 hover:bg-[#3065d8] p-2 flex justify-center  items-center   rounded-full "
         >
-          <LogoutIcon /> Logout
+          <LogoutIcon />
         </button>
+
+        <p className="font-mono"> Logout</p>
       </div>
       <Dialog
         fullScreen={fullScreen}
