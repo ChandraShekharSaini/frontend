@@ -50,9 +50,9 @@ const authCustomhook = () => {
 
       dispatch(signOutUserSuccess(data));
 
-      setTimeout(() => {
+  
         navigate("/");
-      }, 1000);
+ 
     } catch (error) {
       dispatch(signOutUserFailure(error.message));
       console.log(error);

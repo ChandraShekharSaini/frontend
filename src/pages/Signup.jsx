@@ -49,7 +49,7 @@ const Signup = () => {
 
     try {
       setisLoading(true);
-      const response = await fetch("https://vidtrim-backend.onrender.com/api/auth/sign-up", {
+      const response = await fetch("https://vidtrim-backend-vercel.vercel.app/api/auth/sign-up", {
         headers: {
           "Content-Type": "application/json",
         },
@@ -72,6 +72,10 @@ const Signup = () => {
 
         handleClickOpen();
         setisLoading(false);
+
+          
+          navigate("/create-account/sign-in");
+      
       }
     } catch (error) {
       console.log(error);
