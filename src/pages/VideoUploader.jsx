@@ -54,7 +54,7 @@ const VideoUpload = () => {
         try {
 
             console.log("Uploading video...")
-            const response = await axios.post(`https://vidtrim-backend-vercel.vercel.app/upload?id=${currentUser?._id}`, formData, {
+            const response = await axios.post(`https://vidtrim-backend.onrender.com/upload?id=${currentUser?._id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -75,7 +75,7 @@ const VideoUpload = () => {
                 return;
             }
 
-            console.log(response)
+            console.log("moving",response)
             const token = response.data.compressedVideoUrl
             navigate(`/download-video?compressedVideoUrl=${encodeURIComponent(token)}`);
 
