@@ -98,8 +98,8 @@ const VideoUpload = () => {
         uploading ? (
             <LoadingPage />
         ) : (
-            <section className="flex justify-center items-center pt-6 w-full h-screen ">
-                <div className=" w-[80%] border-[1px]   m-auto rounded-lg  bg-gray-100 flex flex-col text-center gap-5 p-5 ">
+            <section className="flex justify-center items-center pt-6 w-full min-h-screen  border-2 border-red-800">
+                <div className=" w-[95%] md:w-[80%] border-[1px]   m-auto rounded-lg  bg-gray-100 flex flex-col text-center gap-5 p-5 ">
                     <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black font-sans">Compression Tool</h2>
 
                     <div className="text-[#808080]  sm:text-lg  md:text-xl lg:text-2xl font-mono tracking-tighter">Quickly and easily compress large video files for smoother streaming,<br></br>
