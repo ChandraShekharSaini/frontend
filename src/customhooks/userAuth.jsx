@@ -1,11 +1,11 @@
 const userAuth = () => {
 
   const GoogleAuthButton = () => {
-    window.location.href = "https://vidtrim-backend.onrender.com/auth/google";
+    window.location.href = "https://vidtrim-backend-vercel.vercel.app/auth/google";
   };
 
   const GithubAuthButton = () => {
-    window.location.href = "https://vidtrim-backend.onrender.com/auth/github";
+    window.location.href = "https://vidtrim-backend-vercel.vercel.app/auth/github";
   };
 
   const name = 90

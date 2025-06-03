@@ -84,7 +84,7 @@ export default function FormPropsTextFields() {
     try {
       dispatch(updateUserStart());
       const response = await fetch(
-        `https://vidtrim-backend.onrender.com/api/auth/update-user/${currentUser._id}`,
+        `https://vidtrim-backend-vercel.vercel.app/api/auth/update-user/${currentUser._id}`,
         {
           method: "PUT",
           body: JSON.stringify(formData),
