@@ -121,6 +121,8 @@ const FlipBar = (props) => {
   const { currentUser } = useSelector((state) => state.user);
   const { handleLogout, handleDelete } = authCustomhook();
 
+  const  b =89;
+
   return (
     <div
       className={`w-[100%] h-screen  text-black bg-white  top-[65px] ${
@@ -178,6 +180,8 @@ const FlipBar = (props) => {
               <p className="font-mono text-gray hover:text-[#ffffff]">Home</p>
             </div>
           </Link>
+
+             <Divider />
 
           <Link
             to="/video-upload"

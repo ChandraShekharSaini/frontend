@@ -98,7 +98,7 @@ const VideoUpload = () => {
         uploading ? (
             <LoadingPage />
         ) : (
-            <section className="flex justify-center items-center pt-6 w-full min-h-screen  border-2 border-red-800">
+            <section className="flex justify-center items-center pt-3 md:pt-6 w-full min-h-screen  ">
                 <div className=" w-[95%] md:w-[80%] border-[1px]   m-auto rounded-lg  bg-gray-100 flex flex-col text-center gap-5 p-5 ">
                     <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-black font-sans">Compression Tool</h2>
 
