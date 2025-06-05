@@ -8,7 +8,7 @@ import { FaYoutube } from "react-icons/fa";
 const Footer = () => {
   return (
     <footer>
-      <div className="flex justify-between bg-white  px-7 py-5 border-t-2 border-black">
+      <div className="flex justify-between bg-white  px-4 md:px-7 py-5 border-t-2 border-black">
         <div className=" sm:w-[60%] lg:w-[30%]  flex  items-center justify-start gap-2 sm:gap-4 pl-1 sm:pl-4 ">
           {/* <img className='w-12  h-12' src="/logoVideo.webp" /> */}
 
@@ -29,7 +29,7 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="flex  gap-3  items-center ">
+        <div className="flex gap-1  md:gap-3  items-center ">
           <FaFacebook className="text-[26px] text-[#1877F2] cursor-pointer hover:scale-110" />
           <RiInstagramFill className="text-[30px] text-[#d62976] cursor-pointer hover:scale-110" />
           <TbBrandLinkedinFilled className="text-[30px] text-[#0077b5] cursor-pointer hover:scale-110" />
