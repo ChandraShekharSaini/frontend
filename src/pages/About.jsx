@@ -3,7 +3,7 @@ import React from "react";
 const About = () => {
   return (
     <>
-      <section className="min-h-screen w-full bg-[#242424] text-white text-3xl flex flex-col px-8 py-8 sm:pt-20 md:pt-24 lg:pt-40  sm:pl-20 md:first-letter md:gap-10  lg:gap-6">
+      <section className="min-h-screen w-full bg-[#242424] text-white text-3xl flex flex-col px-8 py-8 sm:pt-20 md:pt-24 lg:pt-32  sm:pl-20 md:first-letter md:gap-10  lg:gap-6">
         <div className="flex flex-col gap-1 sm:gap-2 md:gap-5 lg:gap-4 ">
           <p className="text-white text-[35px] sm:text-[50px] font-Boldonse">
             Everyone has{" "}
