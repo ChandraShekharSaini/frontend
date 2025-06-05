@@ -74,7 +74,7 @@ const Login = () => {
   };
 
   return (
-    <section className="bg-black flex flex-col justify-center  items-center h-screen w-screen  sm:pr-0 sm:pl-0 ">
+    <section className="bg-black flex flex-col justify-center pb-1  items-center h-screen w-screen  sm:pr-0 sm:pl-0 ">
       <ToastContainer
         position="top-right"
         autoClose={4000}
