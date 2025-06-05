@@ -4,10 +4,12 @@ import { FaFacebook } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 import { TbBrandLinkedinFilled } from "react-icons/tb";
 import { FaYoutube } from "react-icons/fa";
+import DeleteDiaglogBox from "./DeleteDiaglogBox"
 
 const Footer = () => {
   return (
     <footer>
+
       <div className="flex justify-between bg-white  px-4 md:px-7 py-5 border-t-2 border-black">
         <div className=" sm:w-[60%] lg:w-[30%]  flex  items-center justify-start gap-2 sm:gap-4 pl-1 sm:pl-4 ">
           {/* <img className='w-12  h-12' src="/logoVideo.webp" /> */}
