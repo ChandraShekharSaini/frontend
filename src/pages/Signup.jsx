@@ -97,7 +97,7 @@ const Signup = () => {
         pauseOnHover
       />
 
-      <section className="bg-black flex flex-col    items-center  pb-1  sm:h-[105vh]  w-screen sm:pr-0 sm:pl-0 ">
+      <section className="bg-black flex flex-col    items-center  pb-1 min-h-screen  sm:h-[105vh]  w-screen sm:pr-0 sm:pl-0 ">
         <div className="text-[#eeeeee] font-bold text-2xl mb-6 mt-12">Sign up</div>
 
         <form

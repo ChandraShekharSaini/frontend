@@ -74,7 +74,7 @@ const Login = () => {
   };
 
   return (
-    <section className="bg-black flex flex-col justify-center pb-1  items-center h-screen w-screen  sm:pr-0 sm:pl-0 ">
+    <section className="bg-black flex flex-col justify-center pb-1   items-center min-h-screen w-screen  sm:pr-0 sm:pl-0 ">
       <ToastContainer
         position="top-right"
         autoClose={4000}
@@ -87,7 +87,7 @@ const Login = () => {
         pauseOnHover
       />
 
-      <div className="text-[#eeeeee] font-bold text-2xl mb-6">Sign in</div>
+      <div className="text-[#eeeeee] font-bold text-2xl mb-6 mt-11">Sign in</div>
 
       <form
         onSubmit={handleSignup}
