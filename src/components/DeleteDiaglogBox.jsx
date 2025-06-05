@@ -99,7 +99,7 @@ export default function AlertDialog() {
   };
 
   const handleDeleteAccount = () => {
-    // TODO: Add delete account logic here
+     handleDelete();
     console.log("Account deletion confirmed.");
     setOpen(false);
   };
@@ -143,7 +143,7 @@ export default function AlertDialog() {
             Cancel
           </Button>
           <Button 
-            onClick={handleDelete } 
+            onClick={handleDeleteAccount } 
             autoFocus 
             style={{ backgroundColor: "#d32f2f", color: "#fff", fontWeight: 600 }}
             onMouseOver={(e) => (e.target.style.backgroundColor = "#b71c1c")}
