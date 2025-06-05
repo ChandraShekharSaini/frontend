@@ -35,7 +35,7 @@
 //       <div    onClick={handleClickOpen} className="flex flex-row items-center gap-4 p-2 cursor-pointer   hover:bg-black hover:text-white">
 //         <button
 //           type="button"
-       
+
 //           className="text-white bg-blue-500 hover:bg-[#3065d8] p-2 flex justify-center  items-center   rounded-full "
 //         >
 //           <LogoutIcon />
@@ -67,7 +67,6 @@
 //   );
 // }
 
-
 import * as React from "react";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
@@ -78,11 +77,10 @@ import DialogTitle from "@mui/material/DialogTitle";
 import LogoutIcon from "@mui/icons-material/Logout";
 import authCustomhook from "../customhooks/AuthCustomHook";
 
-
 export default function LogoutDialog() {
   const [open, setOpen] = React.useState(false);
 
-  const { handleLogout } = authCustomhook(); 
+  const { handleLogout } = authCustomhook();
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -102,17 +100,17 @@ export default function LogoutDialog() {
     <React.Fragment>
       <div
         onClick={handleClickOpen}
-        className="flex flex-row items-center gap-4 p-2 cursor-pointer hover:bg-white hover:text-black text-white"
+        className="flex flex-row items-center gap-4 p-2 cursor-pointer   hover:bg-black hover:text-white"
       >
         <button
           type="button"
-          className="text-white bg-gray-700 flex justify-center items-center hover:bg-gray-600 p-2 rounded-full"
+          className="text-white bg-blue-500 hover:bg-[#3065d8] p-2 flex justify-center  items-center   rounded-full "
         >
           <LogoutIcon />
         </button>
-        <p className="font-mono">Logout</p>
-      </div>
 
+        <p className="font-mono"> Logout</p>
+      </div>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -125,15 +123,14 @@ export default function LogoutDialog() {
           },
         }}
       >
-        <DialogTitle id="logout-dialog-title">
-          Confirm Logout
-        </DialogTitle>
+        <DialogTitle id="logout-dialog-title">Confirm Logout</DialogTitle>
         <DialogContent>
           <DialogContentText
             id="logout-dialog-description"
             style={{ color: "#ccc" }}
           >
-            Are you sure you want to log out? You will need to sign in again to access your account.
+            Are you sure you want to log out? You will need to sign in again to
+            access your account.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
