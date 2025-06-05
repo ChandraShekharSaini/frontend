@@ -27,9 +27,7 @@ const Signup = () => {
   const handleClose = () => {
     setOpen(false);
 
-  
-      navigate("/create-account/sign-in");
-
+    navigate("/create-account/sign-in");
   };
   const [formData, setFormData] = useState({});
   const [isLoading, setisLoading] = useState(false);
@@ -98,7 +96,9 @@ const Signup = () => {
       />
 
       <section className="bg-black flex flex-col    items-center  pb-1 min-h-screen  sm:h-[105vh]  w-screen sm:pr-0 sm:pl-0 ">
-        <div className="text-[#eeeeee] font-bold text-2xl mb-6 mt-12">Sign up</div>
+        <div className="text-[#eeeeee] font-bold text-2xl mb-6 mt-12">
+          Sign up
+        </div>
 
         <form
           onSubmit={handleSignup}
@@ -195,39 +195,30 @@ const Signup = () => {
       </section>
 
       <Dialog
-        fullScreen={fullScreen}
         open={open}
         onClose={handleClose}
-        aria-labelledby="responsive-dialog-title"
-        sx={{
-          "& .MuiDialog-paper": {
-            padding: 2,
-            borderRadius: 2,
-            boxShadow: 5,
+        aria-labelledby="info-dialog-title"
+        aria-describedby="info-dialog-description"
+        PaperProps={{
+          style: {
+            backgroundColor: "#000",
+            color: "#fff",
           },
         }}
       >
-        <DialogTitle
-          id="responsive-dialog-title"
-          sx={{ fontWeight: "bold", fontSize: "1.25rem" }}
-        >
-          Credentials Sent
-        </DialogTitle>
+        <DialogTitle id="info-dialog-title">Credentials Sent</DialogTitle>
         <DialogContent>
-          <DialogContentText sx={{ fontSize: "1rem", color: "#555" }}>
-            Your username and password have been successfully sent to your
-            registered email address. Please check your inbox (and spam folder
-            if necessary) to access your login credentials.
+          <DialogContentText
+            id="info-dialog-description"
+            style={{ color: "#ccc" }}
+          >
+            Your username and password have been securely sent to your
+            registered email address. Please check your inbox to proceed.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button
-            onClick={handleClose}
-            variant="contained"
-            color="primary"
-            sx={{ textTransform: "none" }}
-          >
-            OK
+          <Button onClick={handleClose} autoFocus style={{ color: "#aaa" }}>
+            Close
           </Button>
         </DialogActions>
       </Dialog>
