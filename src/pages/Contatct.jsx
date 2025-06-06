@@ -18,7 +18,7 @@ const Contatct = () => {
     ev.preventDefault();
     setPending(true);
     try {
-      const res = await fetch("http://localhost:3600/api/query/message", {
+      const res = await fetch("https://vidtrim-backend-vercel.vercel.app/api/query/message", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
