@@ -18,7 +18,7 @@ const Contatct = () => {
     ev.preventDefault();
     setPending(true);
     try {
-      const res = await fetch("http://localhost:4600", {
+      const res = await fetch("http://localhost:3600/api/query/message", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -32,7 +32,7 @@ const Contatct = () => {
         setPending(false);
         return
       }
-
+    console.log(response);
       if (res.ok) {
         setPending(false);
         toast.success(response.messsage, {
@@ -78,7 +78,7 @@ const Contatct = () => {
               className="p-3 outline-none border-2 border-gray-400 focus:border-3 focus:border-[#1396e1] focus:bg-[#e8f0fe] rounded-[5px]"
               placeholder="Enter Name"
               type="text"
-              name="name"
+              name="userName"
               required
             />
 
@@ -86,7 +86,7 @@ const Contatct = () => {
               onChange={handleChange}
               className="p-3 outline-none border-2 border-gray-400 focus:border-3 focus:border-[#1396e1] focus:bg-[#e8f0fe] rounded-[5px]"
               placeholder="Enter Email"
-              name="email"
+              name="userEmail"
               type="text"
               required
             />
@@ -94,7 +94,7 @@ const Contatct = () => {
             <textarea
               onChange={handleChange}
               className="p-3 outline-none border-2 border-gray-400 focus:border-3 focus:border-[#1396e1] focus:bg-[#e8f0fe] rounded-[5px]"
-              name="textarea"
+              name="userMessage"
               placeholder="Enter message"
               rows={4}
               cols={6}
