@@ -1,4 +1,3 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useSelector, useDispatch } from "react-redux";
@@ -41,6 +40,7 @@ export default function FormPropsTextFields() {
 
   console.log(currentUser);
   const navigate = useNavigate();
+  const [pending, setPending] = useState(false);
   const dispatch = useDispatch();
   const [isUpdated, setIsUpdated] = useState(false);
   const [icon, setIcon] = useState(false);
@@ -80,7 +80,7 @@ export default function FormPropsTextFields() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    pending(true);
     try {
       dispatch(updateUserStart());
       const response = await fetch(
@@ -99,14 +99,17 @@ export default function FormPropsTextFields() {
       console.log(data);
       if (data.success === false) {
         dispatch(updateUserFailure(data.message));
+        pending(false);
         console.log(data);
       }
       setIsUpdated(true);
       handleClick();
+      pending(false);
       dispatch(updateUserSuccess(data.user));
     } catch (error) {
       console.log(error.message);
       dispatch(updateUserFailure(error.message));
+      pending(false);
     }
   };
 
@@ -142,6 +145,7 @@ export default function FormPropsTextFields() {
                 <img
                   src={
                     currentUser?.profilePicture?.googleImageUrl ??
+                    currentUser?.profilePicture?.githubImageUrl ??
                     currentUser?.profilePicture?.defaultImageUrl
                   }
                   alt="userImage"
@@ -159,7 +163,7 @@ export default function FormPropsTextFields() {
             </div>
           </div>
 
-             <Divider />
+          <Divider />
 
           <div className="flex flex-col  ">
             <Link
@@ -187,7 +191,7 @@ export default function FormPropsTextFields() {
               </div>
             </Link>
 
-             <Link
+            <Link
               to="/video-upload"
               className="flex flex-row  items-center  gap-4  p-2 cursor-pointer  hover:bg-black hover:text-white"
             >
@@ -195,7 +199,9 @@ export default function FormPropsTextFields() {
                 <FaCompressArrowsAlt className="text-white" />
               </div>
               <div>
-                <p className="font-mono text-gray hover:text-[#ffffff]">Compress Video</p>
+                <p className="font-mono text-gray hover:text-[#ffffff]">
+                  Compress Video
+                </p>
               </div>
             </Link>
 
@@ -217,7 +223,7 @@ export default function FormPropsTextFields() {
 
             <LogoutDialog />
 
-            <Divider/>
+            <Divider />
 
             <DeleteAccountDialog />
             <Divider />
@@ -324,7 +330,7 @@ export default function FormPropsTextFields() {
 
             <div className="w-[90%]  flex flex-col  justify-center items-center sm:flex-row sm:justify-between gap-2 ">
               <TextField
-               autoComplete="on"
+                autoComplete="on"
                 id="username"
                 label="Username"
                 onChange={handleChange}
@@ -433,13 +439,12 @@ export default function FormPropsTextFields() {
             </div>
 
             <button
+              disabled={pending}
               onClick={handleSubmit}
               className="bg-blue-500 text-white p-2 rounded-md w-[90%] hover:bg-blue-600"
             >
               Update
             </button>
-
-           
           </div>
         </Box>
 

@@ -62,9 +62,9 @@ const Login = () => {
         console.log("login", data);
 
         setisLoading(false);
-        setTimeout(() => {
+   
           navigate("/");
-        }, 1000);
+      
       }
     } catch (error) {
       dispatch(signInFailure(error.message));

@@ -121,7 +121,7 @@ const FlipBar = (props) => {
   const { currentUser } = useSelector((state) => state.user);
   const { handleLogout, handleDelete } = authCustomhook();
 
-  const  b =89;
+  const b = 89;
 
   return (
     <div
@@ -136,6 +136,7 @@ const FlipBar = (props) => {
               <img
                 src={
                   currentUser?.profilePicture?.googleImageUrl ??
+                  currentUser?.profilePicture?.githubImageUrl ??
                   currentUser?.profilePicture?.defaultImageUrl
                 }
                 alt="userImage"
@@ -181,7 +182,7 @@ const FlipBar = (props) => {
             </div>
           </Link>
 
-             <Divider />
+          <Divider />
 
           <Link
             to="/video-upload"

@@ -158,6 +158,7 @@ const Navbar = () => {
               <img
                 src={
                   currentUser?.profilePicture?.googleImageUrl ??
+                       currentUser?.profilePicture?.githubImageUrl ??
                   currentUser?.profilePicture?.defaultImageUrl
                 }
                 className="w-10 h-10 sm:w-12 sm:h-12  rounded-full object-cover  hover:scale-110  transition duration-500"

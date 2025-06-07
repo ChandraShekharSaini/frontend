@@ -11,9 +11,9 @@ import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import Button from "@mui/material/Button";
 
-
 const FlipBarHome = (props) => {
-  const { GoogleAuthButton, GithubAuthButton } = userAuth();
+  const { GoogleAuthButton, GithubAuthButton, InstagramAuthButton } =
+    userAuth();
 
   return (
     <section
@@ -68,7 +68,7 @@ const FlipBarHome = (props) => {
         </Link>
 
         <button
-        onClick={GoogleAuthButton}
+          onClick={GoogleAuthButton}
           type="button"
           className="p-2 w-full  bg-[#181818] border-[1px] text-[#cfcfcf] border-gray-400  mt-4   hover:border-gray-500 font-semibold rounded-[5px] flex justify-center items-center gap-2 cursor-pointer"
         >
@@ -78,13 +78,22 @@ const FlipBarHome = (props) => {
         </button>
 
         <button
-        onClick={GithubAuthButton}
+          onClick={InstagramAuthButton}
+          type="button"
+          className="p-2  w-full  bg-[#181818] border-[1px] text-[#cfcfcf] border-gray-400  hover:border-gray-500 font-semibold rounded-[5px] flex justify-center items-center gap-2 cursor-pointer"
+        >
+          <img src="/githublogo.png" className="w-5 h-5 mr-2" /> Continue with
+          Github
+        </button>
+
+        <button
+          onClick={GithubAuthButton}
           type="button"
           className="p-2  w-full  bg-[#181818] border-[1px] text-[#cfcfcf] border-gray-400  hover:border-gray-500 font-semibold rounded-[5px] flex justify-center items-center gap-2 cursor-pointer"
         >
           {" "}
           <img src="/githublogo.png" className="w-5 h-5 mr-2" /> Continue with
-          Github
+          Facebook
         </button>
       </div>
 
