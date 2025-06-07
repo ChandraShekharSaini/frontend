@@ -269,6 +269,7 @@ export default function FormPropsTextFields() {
               <img
                 src={
                   currentUser?.profilePicture?.googleImageUrl ??
+                       currentUser?.profilePicture?.githubImageUrl ??
                   currentUser?.profilePicture?.defaultImageUrl
                 }
                 alt="userImage"
