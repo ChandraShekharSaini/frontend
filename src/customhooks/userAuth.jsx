@@ -9,14 +9,14 @@ const userAuth = () => {
       "https://vidtrim-backend-vercel.vercel.app/auth/github";
   };
 
-  const IInstagramAuthButton = () => {
+  const InstagramAuthButton = () => {
     window.location.href =
       "https://vidtrim-backend-vercel.vercel.app/auth/instagram";
   };
 
   const name = 90;
 
-  return { GoogleAuthButton, GithubAuthButton, InsragramAuthButton };
+  return { GoogleAuthButton, GithubAuthButton, InstagramAuthButton };
 };
 
 export default userAuth;
