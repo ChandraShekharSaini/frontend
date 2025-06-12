@@ -81,7 +81,7 @@ export default function FormPropsTextFields() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    pending(true);
+    setPending(true);
     try {
       dispatch(updateUserStart());
       const response = await fetch(
@@ -100,17 +100,17 @@ export default function FormPropsTextFields() {
       console.log(data);
       if (data.success === false) {
         dispatch(updateUserFailure(data.message));
-        pending(false);
+        setPending(false);
         console.log(data);
       }
       setIsUpdated(true);
       handleClick();
-      pending(false);
+      setPending(false);
       dispatch(updateUserSuccess(data.user));
     } catch (error) {
       console.log(error.message);
       dispatch(updateUserFailure(error.message));
-      pending(false);
+      setPending(false);
     }
   };
 
