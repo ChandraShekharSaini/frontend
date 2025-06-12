@@ -339,7 +339,7 @@ export default function FormPropsTextFields() {
                 defaultValue={formData.username}
                 sx={{
                   "& .MuiOutlinedInput-root": {
-                    "& input": { color: "white" },
+                    "& input": { color: "white", backgroundColor: "rgba(32, 156, 227, 0.1)" },
                     "& fieldset": { borderColor: "white" },
                     "&:hover fieldset": { borderColor: "rgb(32, 156, 227)" },
                     "&.Mui-focused fieldset": {
