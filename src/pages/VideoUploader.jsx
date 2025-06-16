@@ -68,7 +68,9 @@ const VideoUpload = () => {
         setUploading(false);
         return;
       }
-
+     
+      console.log("---------------response----------");
+      console.log(response);
      await saveDetail(response.data.compressedVideoUrl);
       console.log("moving", response);
 
@@ -86,13 +88,18 @@ const VideoUpload = () => {
 
         
       const saveDetail = async (videoUrl) => {
+
+        console.log("----------------------------saved-----------");
         const data = await fetch(
        `https://vidtrim-backend-vercel.vercel.app/saved-video/${currentUser._id}`,
           {
+    
             method: "POST",
             headers: {
               "Content-Type": "application/json",
+            
             },
+        
             body: JSON.stringify({videoUrl}),
           }
         );
