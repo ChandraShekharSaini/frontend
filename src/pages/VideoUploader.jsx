@@ -48,7 +48,7 @@ const VideoUpload = () => {
       // https://vidtrim-backend.onrender.com
       console.log("Uploading video...");
       const response = await axios.post(
-        `https://vidtrim-backend-vercel-1qz03qz42-chandrashekharsainis-projects.vercel.app/upload?id=${currentUser?._id}`,
+        `https://vidtrim-backend-vercel.vercel.app/upload?id=${currentUser?._id}`,
         formData,
         {
           headers: {
