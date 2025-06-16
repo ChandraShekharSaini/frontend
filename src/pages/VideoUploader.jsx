@@ -71,7 +71,9 @@ const VideoUpload = () => {
      
       console.log("---------------response----------");
       console.log(response);
-     await saveDetail(response.data.compressedVideoUrl);
+       if(response.status == 200){
+         await saveDetail(response.data.compressedVideoUrl);
+       }
       console.log("moving", response);
 
       const token =  response.data.compressedVideoUrl;
