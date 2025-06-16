@@ -55,7 +55,7 @@ const VideoUpload = () => {
             "Content-Type": "multipart/form-data",
         
           },
-          timeout:10000,
+          timeout:600000,
           onUploadProgress: (progressEvent) => {
             const percentCompleted = Math.round(
               (progressEvent.loaded * 100) / progressEvent.total
