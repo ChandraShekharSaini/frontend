@@ -85,9 +85,9 @@ const VideoUpload = () => {
 
   useEffect(() => {
     try {
-      const saveDetail = () => {
-        const data = fetch(
-          `https://vidtrim-backend-vercel.vercel.app/saved-video/${currentUser._id}`,
+      const saveDetail = async () => {
+        const data = await fetch(
+       `https://vidtrim-backend-vercel.vercel.app/saved-video/${currentUser._id}`,
           {
             method: "POST",
             headers: {
