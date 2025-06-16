@@ -182,7 +182,7 @@ const DownloadFile = () => {
   };
 
   return (
-    <section className="w-full min-h-screen  bg-[#151519]">
+    <section className="w-full h-auto  bg-[#151519]">
       <nav className=" h-[65px] bg-black flex items-center  gap-8 px-10">
         <div className="flex items-center w-[50%] gap-8">
           <Link onClick={() => navigate(-1)}>
