@@ -69,7 +69,7 @@ const VideoUpload = () => {
         return;
       }
 
-      saveDetail(response.data.compressedVideoUrl);
+     await saveDetail(response.data.compressedVideoUrl);
       console.log("moving", response);
 
       const token = response.data.compressedVideoUrl;
@@ -83,9 +83,9 @@ const VideoUpload = () => {
     }
   };
 
-  useEffect(() => {
-    try {
-      const saveDetail = async () => {
+
+        
+      const saveDetail = async (videoUrl) => {
         const data = await fetch(
        `https://vidtrim-backend-vercel.vercel.app/saved-video/${currentUser._id}`,
           {
@@ -93,14 +93,11 @@ const VideoUpload = () => {
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify({ compressedVideoUrl }),
+            body: JSON.stringify({videoUrl}),
           }
         );
       };
-    } catch (error) {
-      console.log(error.message);
-    }
-  }, []);
+        
 
   return uploading ? (
     <LoadingPage />
