@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import { useDropzone } from "react-dropzone";
@@ -45,17 +45,15 @@ const VideoUpload = () => {
     console.log("FormData", formData);
 
     try {
-      // https://vidtrim-backend.onrender.com
       console.log("Uploading video...");
       const response = await axios.post(
-        `https://vidtrim-backend-vercel.vercel.app/upload?id=${currentUser?._id}`,
+        `https://vidtrim-backend.onrender.com/upload?id=${currentUser?._id}`,
         formData,
         {
           headers: {
             "Content-Type": "multipart/form-data",
-        
           },
-  
+
           onUploadProgress: (progressEvent) => {
             const percentCompleted = Math.round(
               (progressEvent.loaded * 100) / progressEvent.total
@@ -71,7 +69,9 @@ const VideoUpload = () => {
         return;
       }
 
+      saveDetail(response.data.compressedVideoUrl);
       console.log("moving", response);
+
       const token = response.data.compressedVideoUrl;
       navigate(
         `/download-video?compressedVideoUrl=${encodeURIComponent(token)}`
@@ -82,6 +82,25 @@ const VideoUpload = () => {
       setUploading(false);
     }
   };
+
+  useEffect(() => {
+    try {
+      const saveDetail = () => {
+        const data = fetch(
+          `https://vidtrim-backend-vercel.vercel.app/saved-video/${currentUser._id}`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ compressedVideoUrl }),
+          }
+        );
+      };
+    } catch (error) {
+      console.log(error.message);
+    }
+  }, []);
 
   return uploading ? (
     <LoadingPage />
