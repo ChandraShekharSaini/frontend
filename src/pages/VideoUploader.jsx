@@ -74,7 +74,7 @@ const VideoUpload = () => {
      await saveDetail(response.data.compressedVideoUrl);
       console.log("moving", response);
 
-      const token = response.data.compressedVideoUrl;
+      const token =  response.data.compressedVideoUrl;
       navigate(
         `/download-video?compressedVideoUrl=${encodeURIComponent(token)}`
       );

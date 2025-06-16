@@ -195,7 +195,7 @@ const DownloadFile = () => {
         </div>
 
         <div className="flex items-center justify-end  w-[50%] gap-8">
-          {currentUser ?? (
+          {currentUser && (
             <Link to="/user/profile">
               <img
                 className="w-10 h-10 rounded-full"
