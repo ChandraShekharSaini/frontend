@@ -139,10 +139,14 @@ const DownloadFile = () => {
   const [compressedVideoUrl, setCompressedVideoUrl] = useState(null);
   const { currentUser } = useSelector((state) => state.user);
 
+
+  const name = "chandra 122"
+
   useEffect(() => {
     const queryParamas = new URLSearchParams(location.search);
     const token = queryParamas.get("compressedVideoUrl");
 
+   
     // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVcmwiOiJodHRwczovL3Jlcy5jbG91ZGluYXJ5LmNvbS9kZGR2ZGlibmcvdmlkZW8vdXBsb2FkL3YxNzQyNzM1ODUzL2NvbXByZXNzZWRfdmlkZW9zL28xajNxNjN4djlrd3A0NXRydW43Lm1wNCIsImlhdCI6MTc0MjczNTg0Nn0.rk10SCDJVztEBtwufVsL3UwrMGUb5Xvw0I_frNyYQlc"
 
     if (token) {
@@ -195,7 +199,7 @@ const DownloadFile = () => {
             <Link to="/user/profile">
               <img
                 className="w-10 h-10 rounded-full"
-                src={currentUser.profilePicture.defaultImageUrl}
+                src={currentUser?.profilePicture?.defaultImageUrl}
                 alt="logo"
               />
             </Link>
