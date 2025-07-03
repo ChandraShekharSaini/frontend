@@ -169,17 +169,18 @@ const Footer = () => {
 
           <div className="sm:w-[90%] lg:w-[30%] ">
             <div className=" text-center">
-              <h3 className="text-[#c60e48]   text-[20px]  font-bold">Links</h3>
+              <h3 className="text-[#c60e48]   text-[20px]  font-bold">Source Code</h3>
             </div>
             <hr className="h-[2px] m-auto mt-3 border-0 bg-gradient-to-r from-[#a70a3f] via-[#c60e48] via-[#e03a65] via-[#f8475e] to-[#ff6b81]" />
 
             <div className="flex flex-col gap-1 mt-3">
-              <Link
-                to="/"
+              <a
+                href="https://github.com/ChandraShekharSaini/VidTrim.git"
+                target="_blank"
                 className="text-[18px] transition duration-300 hover:text-red-600 hover:underline hover:decoration-red-600 hover:underline-offset-2 font-mono"
               >
-                Home
-              </Link>
+                Github
+              </a>
 
               <Link
                 to={"/video-upload"}
