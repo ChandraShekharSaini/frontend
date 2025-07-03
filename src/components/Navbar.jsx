@@ -89,10 +89,7 @@ const Navbar = () => {
 
   return (
     <>
-   {
-    flip && <FlipBarHome value = {flip}  setflip = {setflip}/>
-   }
-
+      {flip && <FlipBarHome value={flip} setflip={setflip} />}
 
       <nav
         className={`text-white w-[95%] p-3 sm:p-0 mx-auto pr-3 sm:pr-0 flex justify-between rounded-2xl z-30  fixed top-4 left-0 right-0  mt-4 transition duration-500 backdrop-blur-sm ${
@@ -137,7 +134,7 @@ const Navbar = () => {
             className={`transition duration-400 ${
               isScrolled ? "hover:text-orange-500" : "hover:text-white"
             }`}
-            to="/video-upload"
+            to="/create-account/sign-up"
           >
             VIDEO COMPRESSION
           </Link>
@@ -158,7 +155,7 @@ const Navbar = () => {
               <img
                 src={
                   currentUser?.profilePicture?.googleImageUrl ??
-                       currentUser?.profilePicture?.githubImageUrl ??
+                  currentUser?.profilePicture?.githubImageUrl ??
                   currentUser?.profilePicture?.defaultImageUrl
                 }
                 className="w-10 h-10 sm:w-12 sm:h-12  rounded-full object-cover  hover:scale-110  transition duration-500"
