@@ -31,14 +31,17 @@ const Login = () => {
     try {
       setisLoading(true);
       dispatch(signInStart());
-      const response = await fetch("https://vidtrim-backend-vercel.vercel.app/api/auth/sign-in", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        method: "POST",
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://vidtrim-backend-vercel.vercel.app/api/auth/sign-in",
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          method: "POST",
+          body: JSON.stringify(formData),
+        }
+      );
 
       console.log("response", response);
       const data = await response.json();
@@ -62,9 +65,8 @@ const Login = () => {
         console.log("login", data);
 
         setisLoading(false);
-   
-          navigate("/");
-      
+
+        navigate("/");
       }
     } catch (error) {
       dispatch(signInFailure(error.message));
@@ -87,7 +89,9 @@ const Login = () => {
         pauseOnHover
       />
 
-      <div className="text-[#eeeeee] font-bold text-2xl mb-6 mt-11">Sign in</div>
+      <div className="text-[#eeeeee] font-bold text-2xl mb-6 mt-11">
+        Sign in
+      </div>
 
       <form
         onSubmit={handleSignup}
@@ -96,6 +100,7 @@ const Login = () => {
         <p className="text-[#d5d3d3] font-semibold">Email</p>
         <input
           type="email"
+          required
           placeholder="Your email address"
           name="email"
           onChange={handleChange}
@@ -106,6 +111,7 @@ const Login = () => {
         <p className="text-[#d5d3d3] font-semibold">Password</p>
         <input
           type="password"
+          required
           placeholder="Your password"
           name="password"
           onChange={handleChange}
@@ -145,8 +151,12 @@ const Login = () => {
           className="p-2   bg-[#181818] border-[1px] text-[#cfcfcf] border-gray-400  hover:border-gray-500 font-semibold rounded-[5px] flex justify-center items-center gap-2 cursor-pointer"
         >
           {" "}
-          <img disabled={isLoading} src="/githublogo.png" className="w-5 h-5 mr-2" /> Continue with
-          Github
+          <img
+            disabled={isLoading}
+            src="/githublogo.png"
+            className="w-5 h-5 mr-2"
+          />{" "}
+          Continue with Github
         </button>
 
         <div className=" flex justify-center text-center items-center pt-4">

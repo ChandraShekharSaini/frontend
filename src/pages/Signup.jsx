@@ -109,6 +109,7 @@ const Signup = () => {
               <p className="text-[#d5d3d3] font-semibold">First name</p>
               <input
                 type="text"
+                required
                 placeholder="Your first name"
                 name="firstName"
                 onChange={handleChange}
@@ -121,6 +122,7 @@ const Signup = () => {
               <p className="text-[#d5d3d3] font-semibold">Last name</p>
               <input
                 type="text"
+                required
                 placeholder="Your last name"
                 name="lastName"
                 onChange={handleChange}
@@ -133,6 +135,7 @@ const Signup = () => {
           <p className="text-[#d5d3d3] font-semibold">Email</p>
           <input
             type="email"
+            required
             placeholder="Your email address"
             name="email"
             onChange={handleChange}
