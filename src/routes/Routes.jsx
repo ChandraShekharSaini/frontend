@@ -23,7 +23,7 @@ const App = () => {
 
       <Suspense fallback={<FallbackLoading />}>
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='/' element={<Home/>} />
           <Route path='/download-video' element={<DownloadFile />} />
           <Route path='/video-upload' element={<VideoUpload />} />
           <Route path='/create-account/sign-up' element={<Signup />} />

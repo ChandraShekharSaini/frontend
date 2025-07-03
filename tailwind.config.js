@@ -12,6 +12,9 @@ export default {
         'Boldonse':['Boldonse','sans-serif'],
         'Oswald':['Oswald','sans-serif'],
         'Karma':['Karma','sans-serif'],
+        'inter': ['Inter', 'sans-serif'],
+        'nunito': ['Nunito', 'sans-serif'],
+        'lato': ['Lato', 'sans-serif'],
       },
 
       colors: {

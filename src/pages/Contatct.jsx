@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Alert from "@mui/material/Alert";
 import Stack from "@mui/material/Stack";
-import { ToastContainer, toast } from "react-toastify";
+
 import { CloseFullscreen } from "@mui/icons-material";
+import { Toaster, toast } from "sonner";
 
 const Contatct = () => {
   const [pending, setPending] = useState(false);
@@ -18,26 +19,28 @@ const Contatct = () => {
     ev.preventDefault();
     setPending(true);
     try {
-      const res = await fetch("https://vidtrim-backend-vercel.vercel.app/api/query/message", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        "https://vidtrim-backend-vercel.vercel.app/api/query/message",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const response = await res.json();
 
       if (response.success === false) {
         setPending(false);
-        return
+        return;
       }
-    console.log(response);
+
       if (res.ok) {
+        console.log(response);
         setPending(false);
-        toast.success(response.messsage, {
-          theme: "light",
-        });
+        toast.success(response.message);
       }
     } catch (error) {
       console.log(error);
@@ -47,18 +50,7 @@ const Contatct = () => {
 
   return (
     <>
-      <ToastContainer
-        position="top-right"
-        autoClose={4000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick={true}
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-
+      <Toaster position="bottom-right" richColors expand={true} closeButton />
       <form
         onSubmit={handleSubmit}
         className="w-full h-screen grid md:grid-cols-10  "
