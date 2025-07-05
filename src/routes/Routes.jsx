@@ -26,9 +26,9 @@ const App = () => {
           <Route path="/download-video" element={<DownloadFile />} />
           <Route path="/video-upload" element={<VideoUpload />} />
           <Route path="/create-account/sign-up" element={<Signup />} />
-
+          <Route path="/create-account/sign-in" element={<Login />} />
+          
           <Route element={<PrivateRoute />}>
-            <Route path="/create-account/sign-in" element={<Login />} />
             <Route path="/user/profile" element={<Profile />} />
             <Route path="/user/dashboard" element={<Dashbord />} />
             <Route path="/contact" element={<Contact />} />
