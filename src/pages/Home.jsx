@@ -34,7 +34,7 @@ const Home = () => {
                 dispatch(signInSuccess(decoded.user))
             } catch (error) {
 
-                navigate("/create-account/sign-in")
+                // navigate("/create-account/sign-in")
 
             }
         }

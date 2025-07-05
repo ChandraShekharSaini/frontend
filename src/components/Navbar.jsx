@@ -130,14 +130,34 @@ const Navbar = () => {
             HOME
           </Link>
 
-          <Link
-            className={`transition duration-400 ${
-              isScrolled ? "hover:text-orange-500" : "hover:text-white"
-            }`}
-            to="/video-upload"
-          >
-            VIDEO COMPRESSION
-          </Link>
+          {/* {currentUser ? (
+            <Link
+              className={`transition duration-400 ${
+                isScrolled ? "hover:text-orange-500" : "hover:text-white"
+              }`}
+              to="/video-upload"
+            >
+              VIDEO COMPRESSION
+            </Link>
+          ) : (
+            <Link
+              className={`transition duration-400 ${
+                isScrolled ? "hover:text-orange-500" : "hover:text-white"
+              }`}
+              to="/create-account/sign-in"
+            >
+              VIDEO COMPRESSION
+            </Link>
+          )} */}
+
+            <Link
+              className={`transition duration-400 ${
+                isScrolled ? "hover:text-orange-500" : "hover:text-white"
+              }`}
+              to="/video-upload"
+            >
+              VIDEO COMPRESSION
+            </Link>
 
           <Link
             className={`transition duration-400 ${
