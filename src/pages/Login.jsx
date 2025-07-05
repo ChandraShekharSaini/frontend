@@ -17,13 +17,13 @@ const Login = () => {
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
 
-  console.log(currentUser);
+ 
 
   const handleChange = (e) => {
     console.log(e.target.value);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  console.log(formData);
+ 
 
   const handleSignup = async (e) => {
     e.preventDefault();

@@ -37,7 +37,7 @@ const Signup = () => {
   const { GoogleAuthButton, GithubAuthButton } = userAuth();
 
   const handleChange = (e) => {
-    console.log(e.target.value);
+
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 

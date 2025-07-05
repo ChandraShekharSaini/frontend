@@ -139,14 +139,12 @@ const DownloadFile = () => {
   const [compressedVideoUrl, setCompressedVideoUrl] = useState(null);
   const { currentUser } = useSelector((state) => state.user);
 
-
-  const name = "chandra 122"
+  const name = "chandra 122";
 
   useEffect(() => {
     const queryParamas = new URLSearchParams(location.search);
     const token = queryParamas.get("compressedVideoUrl");
 
-   
     // const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVcmwiOiJodHRwczovL3Jlcy5jbG91ZGluYXJ5LmNvbS9kZGR2ZGlibmcvdmlkZW8vdXBsb2FkL3YxNzQyNzM1ODUzL2NvbXByZXNzZWRfdmlkZW9zL28xajNxNjN4djlrd3A0NXRydW43Lm1wNCIsImlhdCI6MTc0MjczNTg0Nn0.rk10SCDJVztEBtwufVsL3UwrMGUb5Xvw0I_frNyYQlc"
 
     if (token) {
@@ -182,7 +180,7 @@ const DownloadFile = () => {
   };
 
   return (
-    <section className="w-full h-auto  bg-[#151519]">
+    <section className="w-full min-h-screen  bg-[#151519]">
       <nav className=" h-[65px] bg-black flex items-center  gap-8 px-10">
         <div className="flex items-center w-[50%] gap-8">
           <Link onClick={() => navigate(-1)}>
@@ -215,15 +213,30 @@ const DownloadFile = () => {
             1.48 MB 1.22 MB.
           </div>
 
-          <div className="p-1 border-[1px] w-[300px] md:w-[500px] flex justify-center items-center   border-red-500 rounded-lg">
+          {/* <div className="p-1 border-[1px] w-[300px] md:w-[500px] flex justify-center items-center   border-red-500 rounded-lg">
             <video
               className="w-[90%]  "
-              src={compressedVideoUrl}
+              src={"https://res.cloudinary.com/dddvdibng/video/upload/v1751735233/compressed_videos/keox6csz9uzpzrj4fbzc.mp4"}
               autoPlay
               muted
               loop
               playsInline
             />
+          </div> */}
+
+          <div className="w-full max-w-[500px] p-1 border border-red-500 rounded-lg mx-auto">
+            <div className="relative w-full pt-[56.25%]">
+              {" "}
+              {/* 16:9 Aspect Ratio */}
+              <video
+                className="absolute top-0 left-0 w-full h-full object-contain rounded-lg"
+                src={compressedVideoUrl}
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
+            </div>
           </div>
         </div>
 
