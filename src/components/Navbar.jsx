@@ -134,7 +134,7 @@ const Navbar = () => {
             className={`transition duration-400 ${
               isScrolled ? "hover:text-orange-500" : "hover:text-white"
             }`}
-            to="/create-account/sign-up"
+            to="/video-upload"
           >
             VIDEO COMPRESSION
           </Link>
