@@ -28,7 +28,7 @@ const Footer = () => {
     setIsLoading(true);
     try {
       const res = await fetch(
-        "http://localhost:3600/api/query/footer/message",
+        "https://vidtrim-backend-vercel.vercel.app/api/query/footer/message",
         {
           method: "POST",
           headers: {
