@@ -19,27 +19,30 @@ const Footer = () => {
     }));
   };
 
-  const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
+  // const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
 
   console.log(formData);
+
   const handleSubmit = async (ev) => {
     ev.preventDefault();
     setIsLoading(true);
     try {
-      // const res = await fetch("http://localhost:3400/", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify(formData),
-      // });
+      const res = await fetch(
+        "http://localhost:3600/api/query/footer/message",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
-      // const response = res.json();
+      const response = await res.json();
+      console.log("response", response);
+      // await sleep(3000);
 
-      await sleep(3000);
-      const res = true;
-      if (res) {
-        // console.log(response);
+      if (res.ok) {
         setIsLoading(false);
         toast.success("Message Sent Successfully");
       }
@@ -169,7 +172,9 @@ const Footer = () => {
 
           <div className="sm:w-[90%] lg:w-[30%] ">
             <div className=" text-center">
-              <h3 className="text-[#c60e48]   text-[20px]  font-bold">Source Code</h3>
+              <h3 className="text-[#c60e48]   text-[20px]  font-bold">
+                Source Code
+              </h3>
             </div>
             <hr className="h-[2px] m-auto mt-3 border-0 bg-gradient-to-r from-[#a70a3f] via-[#c60e48] via-[#e03a65] via-[#f8475e] to-[#ff6b81]" />
 
@@ -251,7 +256,10 @@ const Footer = () => {
       </div>
       <div className="py-6 md:px-5  w-full bg-black border-t-2 text-white flex flex-col  md:flex-row justify-center items-center md:justify-between  ">
         <p> © 2025 VidTrim | All Rights Reserved</p>
-        <p className="hover:underline hover:underline-offset-2 cursor-pointer "> Privacy Policy</p>
+        <p className="hover:underline hover:underline-offset-2 cursor-pointer ">
+          {" "}
+          Privacy Policy
+        </p>
       </div>
     </footer>
   );
