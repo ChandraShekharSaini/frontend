@@ -193,12 +193,15 @@ const Footer = () => {
               >
                 Video Compression
               </Link>
-              <Link
-                to={"/about"}
+              <a
+                href={
+                  "https://github.com/ChandraShekharSaini/VidTrim/blob/master/README.md"
+                }
+                target="_blank"
                 className="text-[18px] transition duration-300 hover:text-red-600 hover:underline hover:decoration-red-600 hover:underline-offset-2 font-mono"
               >
-                About Us
-              </Link>
+                Read Me
+              </a>
             </div>
           </div>
         </div>
