@@ -64,6 +64,7 @@ const authCustomhook = () => {
       }
     } catch (error) {
       console.log("=================");
+      console.log(error);
       dispatch(deleteUserFailure(error.message));
       toast.info(error.response.data.message || error.message, {
         theme: "dark",
