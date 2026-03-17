@@ -5,6 +5,7 @@ import { useDropzone } from "react-dropzone";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import LoadingPage from "./LoadingPage";
+import serverUrl from "../api/ApiFile";
 
 const VideoUpload = () => {
   const navigate = useNavigate();
@@ -46,8 +47,8 @@ const VideoUpload = () => {
 
     try {
       console.log("Uploading video...");
-      const response = await axios.post(
-        `https://vidtrim-backend.onrender.com/upload?id=${currentUser?._id}`,
+      const response = await serverUrl.post(
+        `/upload?id=${currentUser?._id}`,
         formData,
         {
           headers: {
@@ -68,15 +69,15 @@ const VideoUpload = () => {
         setUploading(false);
         return;
       }
-     
+
       console.log("---------------response----------");
       console.log(response);
-       if(response.status == 200){
-         await saveDetail(response.data.compressedVideoUrl);
-       }
+      if (response.status == 200) {
+        await saveDetail(response.data.compressedVideoUrl);
+      }
       console.log("moving", response);
 
-      const token =  response.data.compressedVideoUrl;
+      const token = response.data.compressedVideoUrl;
       navigate(
         `/download-video?compressedVideoUrl=${encodeURIComponent(token)}`
       );
@@ -87,26 +88,20 @@ const VideoUpload = () => {
     }
   };
 
+  const saveDetail = async (videoUrl) => {
+    console.log("----------------------------saved-----------");
+    const data = await fetch(
+      `https://vidtrim-backend-vercel.vercel.app/saved-video/${currentUser._id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
 
-        
-      const saveDetail = async (videoUrl) => {
-
-        console.log("----------------------------saved-----------");
-        const data = await fetch(
-       `https://vidtrim-backend-vercel.vercel.app/saved-video/${currentUser._id}`,
-          {
-    
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            
-            },
-        
-            body: JSON.stringify({videoUrl}),
-          }
-        );
-      };
-        
+        body: JSON.stringify({ videoUrl }),
+      }
+    );
+  };
 
   return uploading ? (
     <LoadingPage />

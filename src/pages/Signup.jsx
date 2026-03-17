@@ -5,7 +5,7 @@ import userAuth from "../customhooks/userAuth";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import CredentialDiaglogBtn from "../components/CredentialDiaglogBox.";
-
+import serverUrl from "../api/ApiFile";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -37,9 +37,10 @@ const Signup = () => {
   const { GoogleAuthButton, GithubAuthButton } = userAuth();
 
   const handleChange = (e) => {
-
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  console.log(formData);
 
   const handleSignup = async (e) => {
     console.log("rernsering kjbjhb");
@@ -47,36 +48,32 @@ const Signup = () => {
 
     try {
       setisLoading(true);
-      const response = await fetch(
-        "https://vidtrim-backend-vercel.vercel.app/api/auth/sign-up",
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          method: "POST",
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await serverUrl.post(`/api/auth/sign-up`, formData);
 
-      const data = await response.json();
-      console.log(data);
+      console.log(response.status);
 
-      if (data.success === false) {
-        toast.info(data.message, {
+      if (response.status === 201) {
+        setCredentialDiag(true);
+
+        setisLoading(false);
+
+         toast.success(response.data.message, {
+          theme: "dark",
+        });
+
+        handleClickOpen();
+      }
+    } catch (error) {
+      console.log(error.status);
+      console.log(error.response.data.message);
+
+      if (error.status === 400) {
+        toast.info(error.response.data.message, {
           theme: "dark",
         });
         setisLoading(false);
       }
 
-      if (response.ok) {
-        setCredentialDiag(true);
-
-        setisLoading(false);
-
-        handleClickOpen();
-      }
-    } catch (error) {
-      console.log(error);
       setisLoading(false);
     }
   };

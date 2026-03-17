@@ -35,7 +35,8 @@ import Alert from "@mui/material/Alert";
 
 import DefaulImage from "../assets/defaultImage.jpg";
 import FlipBar from "../components/FlipBar";
-
+import "react-toastify/dist/ReactToastify.css";
+import { Bounce, ToastContainer, toast } from "react-toastify";
 export default function FormPropsTextFields() {
   const { currentUser } = useSelector((state) => state.user);
 
@@ -85,7 +86,7 @@ export default function FormPropsTextFields() {
     try {
       dispatch(updateUserStart());
       const response = await fetch(
-        `https://vidtrim-backend-vercel.vercel.app/api/auth/update-user/${currentUser._id}`,
+        `http://localhost:3600/api/auth/update-user/${currentUser._id}`,
         {
           method: "PUT",
           body: JSON.stringify(formData),
@@ -138,7 +139,20 @@ export default function FormPropsTextFields() {
         </div>
       )}
 
+        <ToastContainer
+          position="bottom-right"
+          autoClose={4000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick={true}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+
       <div className="w-full min-h-screen grid grid-cols-10  relative">
+      
         <div className=" flex-col gap-1 h-screen  bg-[#b6bec9]  lg:col-span-2 hidden lg:flex  ">
           <div className="flex flex-col gap-4  p-2 ">
             <div className="flex flex-row items-center gap-4">
@@ -269,7 +283,7 @@ export default function FormPropsTextFields() {
               <img
                 src={
                   currentUser?.profilePicture?.googleImageUrl ??
-                       currentUser?.profilePicture?.githubImageUrl ??
+                  currentUser?.profilePicture?.githubImageUrl ??
                   currentUser?.profilePicture?.defaultImageUrl
                 }
                 alt="userImage"
@@ -339,7 +353,10 @@ export default function FormPropsTextFields() {
                 defaultValue={formData.username}
                 sx={{
                   "& .MuiOutlinedInput-root": {
-                    "& input": { color: "white", backgroundColor: "rgba(32, 156, 227, 0.1)" },
+                    "& input": {
+                      color: "white",
+                      backgroundColor: "rgba(32, 156, 227, 0.1)",
+                    },
                     "& fieldset": { borderColor: "white" },
                     "&:hover fieldset": { borderColor: "rgb(32, 156, 227)" },
                     "&.Mui-focused fieldset": {

@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Bounce, ToastContainer, toast } from "react-toastify";
 import {
   signOutUserStart,
   signOutUserSuccess,
@@ -12,80 +13,60 @@ import {
   updateUserSuccess,
   updateUserFailure,
 } from "../redux/userSlice";
+import axios from "axios";
+import serverUrl from "../api/ApiFile";
 
 const authCustomhook = () => {
-
-    const dispatch = useDispatch();
-    const {currentUser} = useSelector((state)=>state.user)
-    const navigate = useNavigate()
-
+  const dispatch = useDispatch();
+  const { currentUser } = useSelector((state) => state.user);
+  const navigate = useNavigate();
 
   const handleLogout = async () => {
-
     console.log("logout logout");
 
-   
     try {
+      console.log("tryyy");
 
-        console.log("tryyy");
       dispatch(signOutUserStart());
-      const response = await fetch(
-        `https://vidtrim-backend-vercel.vercel.app/api/auth/sign-out/${currentUser._id}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-        }
+      const response = await serverUrl.get(
+        `/api/auth/sign-out/${currentUser._id}`
       );
       console.log(response);
-      const data = await response.json();
-      console.log("datata",data);
-      if (data.success === false) {
-        console.log(error);
-        dispatch(signOutUserFailure(error.message));
-        return;
-      }
 
-      dispatch(signOutUserSuccess(data));
-
-  
+      if (response.status === 200) {
+        dispatch(signOutUserSuccess(response.data));
         navigate("/");
- 
+      }
     } catch (error) {
       dispatch(signOutUserFailure(error.message));
-      console.log(error);
+
+      if (error.response.status === 401) {
+        console.log(error);
+        toast.info(error.response.data.message, {
+          theme: "dark",
+        });
+      }
     }
   };
 
   const handleDelete = async () => {
     try {
       dispatch(deleteUserStart());
-      const response = await fetch(
-        `https://vidtrim-backend-vercel.vercel.app/api/auth/delete-user/${currentUser._id}`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-        }
+      const response = await serverUrl.delete(
+        `/api/auth/delete-user/${currentUser._id}`
       );
 
-      const data = await response.json();
-      console.log(data);
-      if (data.success === false) {
-        console.log(error);
-        dispatch(deleteUserFailure(error.message));
-        return;
-      }
+      console.log(response);
 
-      dispatch(deleteUserSuccess(data));
-      navigate("/");
+      if (response.status === 200) {
+        dispatch(deleteUserSuccess(response.data));
+      }
     } catch (error) {
+      console.log("=================");
       dispatch(deleteUserFailure(error.message));
-      console.log(error.message);
+      toast.info(error.response.data.message, {
+        theme: "dark",
+      });
     }
   };
 

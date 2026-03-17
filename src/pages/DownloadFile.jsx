@@ -139,7 +139,7 @@ const DownloadFile = () => {
   const [compressedVideoUrl, setCompressedVideoUrl] = useState(null);
   const { currentUser } = useSelector((state) => state.user);
 
-  const name = "chandra 122";
+
 
   useEffect(() => {
     const queryParamas = new URLSearchParams(location.search);

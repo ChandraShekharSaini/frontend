@@ -2,6 +2,7 @@ const userAuth = () => {
   const GoogleAuthButton = () => {
     window.location.href =
       "https://vidtrim-backend-vercel.vercel.app/auth/google";
+    //  "http://localhost:3600/auth/google";
   };
 
   const GithubAuthButton = () => {
@@ -13,8 +14,6 @@ const userAuth = () => {
     window.location.href =
       "https://vidtrim-backend-vercel.vercel.app/auth/instagram";
   };
-
-  const name = 90;
 
   return { GoogleAuthButton, GithubAuthButton, InstagramAuthButton };
 };

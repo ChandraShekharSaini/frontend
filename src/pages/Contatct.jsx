@@ -4,6 +4,8 @@ import Stack from "@mui/material/Stack";
 
 import { CloseFullscreen } from "@mui/icons-material";
 import { Toaster, toast } from "sonner";
+import serverUrl from "../api/ApiFile";
+import axios from "axios";
 
 const Contatct = () => {
   const [pending, setPending] = useState(false);
@@ -19,32 +21,19 @@ const Contatct = () => {
     ev.preventDefault();
     setPending(true);
     try {
-      const res = await fetch(
-        "https://vidtrim-backend-vercel.vercel.app/api/query/message",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const res = await serverUrl.post("/api/query/message", formData);
+      console.log(res);
 
-      const response = await res.json();
-
-      if (response.success === false) {
+      if (res.status === 200) {
+        console.log(res);
         setPending(false);
-        return;
-      }
-
-      if (res.ok) {
-        console.log(response);
+        toast.success(res.data.message);
         setPending(false);
-        toast.success(response.message);
       }
     } catch (error) {
       console.log(error);
       setPending(false);
+      toast.warning(error.message);
     }
   };
 

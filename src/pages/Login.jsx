@@ -8,7 +8,7 @@ import { signInStart, signInSuccess, signInFailure } from "../redux/userSlice";
 import { Bounce, ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaIgloo } from "react-icons/fa6";
-
+import serverUrl from "../api/ApiFile";
 const Login = () => {
   const { GoogleAuthButton, GithubAuthButton } = userAuth();
   const navigate = useNavigate();
@@ -17,13 +17,12 @@ const Login = () => {
   const dispatch = useDispatch();
   const { currentUser } = useSelector((state) => state.user);
 
- 
-
   const handleChange = (e) => {
     console.log(e.target.value);
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
- 
+
+  console.log(formData);
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -31,47 +30,35 @@ const Login = () => {
     try {
       setisLoading(true);
       dispatch(signInStart());
-      const response = await fetch(
-        "https://vidtrim-backend-vercel.vercel.app/api/auth/sign-in",
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          method: "POST",
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await serverUrl.post(`/api/auth/sign-in`, formData);
 
       console.log("response", response);
-      const data = await response.json();
-      console.log(data);
+      console.log(response.data.user);
 
-      if (data.success === false) {
-        dispatch(signInFailure(data.message));
-
-        toast.info(data.message, {
-          theme: "dark",
-        });
-        setisLoading(false);
-      }
-
-      if (response.ok) {
-        toast.success(data.message, {
+      if (response.status === 200) {
+        toast.success(response.data.message, {
           theme: "dark",
         });
         console.log("askcjnsakjc");
-        dispatch(signInSuccess(data.user));
-        console.log("login", data);
+        dispatch(signInSuccess(response.data.user));
+  
 
         setisLoading(false);
 
         navigate("/");
       }
     } catch (error) {
-      dispatch(signInFailure(error.message));
-      console.log(error);
-      setisLoading(false);
+      // dispatch(signInFailure(error.message));
+      // console.log(error);
+      // setisLoading(false);
+
+      if (error.response?.status === 401) {
+        dispatch(signInFailure(error.response.data.message));
+        toast.info(error.response.data.message, {
+          theme: "dark",
+        });
+        setisLoading(false);
+      }
     }
   };
 
