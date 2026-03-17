@@ -60,6 +60,9 @@ const authCustomhook = () => {
 
       if (response.status === 200) {
         dispatch(deleteUserSuccess(response.data.user));
+        toast.success(response.data.message, {
+          theme: "dark",
+        });
         navigate("/");
       }
     } catch (error) {
