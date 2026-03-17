@@ -5,7 +5,7 @@ import { useDropzone } from "react-dropzone";
 import { IoCloudUploadOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import LoadingPage from "./LoadingPage";
-import serverUrl from "../api/ApiFile";
+import { videoUploadUrl } from "../api/ApiVideoUpload";
 
 const VideoUpload = () => {
   const navigate = useNavigate();
@@ -47,14 +47,11 @@ const VideoUpload = () => {
 
     try {
       console.log("Uploading video...");
-      const response = await serverUrl.post(
+      const response = await videoUploadUrl.post(
         `/upload?id=${currentUser?._id}`,
         formData,
         {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-
+        
           onUploadProgress: (progressEvent) => {
             const percentCompleted = Math.round(
               (progressEvent.loaded * 100) / progressEvent.total
