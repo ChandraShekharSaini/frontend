@@ -59,13 +59,13 @@ const authCustomhook = () => {
       console.log(response);
 
       if (response.status === 200) {
-        dispatch(deleteUserSuccess(response.data));
-         navigate("/");
+        dispatch(deleteUserSuccess(response.data.user));
+        navigate("/");
       }
     } catch (error) {
       console.log("=================");
       dispatch(deleteUserFailure(error.message));
-      toast.info(error.response.data.message, {
+      toast.info(error.response.data.message || error.message, {
         theme: "dark",
       });
     }
