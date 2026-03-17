@@ -2,7 +2,7 @@ const userAuth = () => {
   const GoogleAuthButton = () => {
     window.location.href =
       "https://vidtrim-backend-vercel.vercel.app/auth/google";
-    //  "http://localhost:3600/auth/google";
+      "http://localhost:3600/auth/google";
   };
 
   const GithubAuthButton = () => {
