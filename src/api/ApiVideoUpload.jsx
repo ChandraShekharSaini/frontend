@@ -2,7 +2,7 @@ import axios from "axios";
 
 //Production
 export const videoUploadUrl = axios.create({
-  baseURL: "https://vidtrim-backend.onrender.com/",
+  baseURL: "https://vidtrim-backend.onrender.com",
   withCredentials: true,
 });
 
