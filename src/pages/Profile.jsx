@@ -37,6 +37,7 @@ import DefaulImage from "../assets/defaultImage.jpg";
 import FlipBar from "../components/FlipBar";
 import "react-toastify/dist/ReactToastify.css";
 import { Bounce, ToastContainer, toast } from "react-toastify";
+import serverUrl from "../api/ApiFile";
 export default function FormPropsTextFields() {
   const { currentUser } = useSelector((state) => state.user);
 
@@ -85,29 +86,18 @@ export default function FormPropsTextFields() {
     setPending(true);
     try {
       dispatch(updateUserStart());
-      const response = await fetch(
-        `http://localhost:3600/api/auth/update-user/${currentUser._id}`,
-        {
-          method: "PUT",
-          body: JSON.stringify(formData),
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-        }
+      const response = await serverUrl.put(
+        `/api/auth/update-user/${currentUser._id}`,
+        formData
       );
 
-      const data = await response.json();
-      console.log(data);
-      if (data.success === false) {
-        dispatch(updateUserFailure(data.message));
+      console.log(response);
+      if (response.status == 200) {
+        setIsUpdated(true);
+        handleClick();
         setPending(false);
-        console.log(data);
+        dispatch(updateUserSuccess(response.data.user));
       }
-      setIsUpdated(true);
-      handleClick();
-      setPending(false);
-      dispatch(updateUserSuccess(data.user));
     } catch (error) {
       console.log(error.message);
       dispatch(updateUserFailure(error.message));
@@ -139,20 +129,19 @@ export default function FormPropsTextFields() {
         </div>
       )}
 
-        <ToastContainer
-          position="bottom-right"
-          autoClose={4000}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick={true}
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={true}
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
 
       <div className="w-full min-h-screen grid grid-cols-10  relative">
-      
         <div className=" flex-col gap-1 h-screen  bg-[#b6bec9]  lg:col-span-2 hidden lg:flex  ">
           <div className="flex flex-col gap-4  p-2 ">
             <div className="flex flex-row items-center gap-4">
