@@ -91,8 +91,9 @@ export default function FormPropsTextFields() {
         formData
       );
 
-      console.log(response);
+    
       if (response.status == 200) {
+          console.log(response);
         setIsUpdated(true);
         handleClick();
         setPending(false);

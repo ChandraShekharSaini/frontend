@@ -60,6 +60,7 @@ const authCustomhook = () => {
 
       if (response.status === 200) {
         dispatch(deleteUserSuccess(response.data));
+         navigate("/");
       }
     } catch (error) {
       console.log("=================");
