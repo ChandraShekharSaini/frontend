@@ -51,7 +51,6 @@ const VideoUpload = () => {
         `/upload?id=${currentUser?._id}`,
         formData,
         {
-        
           onUploadProgress: (progressEvent) => {
             const percentCompleted = Math.round(
               (progressEvent.loaded * 100) / progressEvent.total
@@ -141,7 +140,7 @@ const VideoUpload = () => {
               or drop your file here
             </p>
           </div>
-          <p className="mt-3 text-red-500">{responseMessage}</p>
+          <p className="mt-3 font-bold text-red-600">{responseMessage}</p>
           <button
             type="submit"
             disabled={uploading}

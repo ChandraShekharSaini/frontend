@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const videoUploadUrl = axios({
-  baseURL: "https://vidtrim-backend-vercel.vercel.app",
+export const videoUploadUrl = axios.create({
+  baseURL: "http://localhost:3600",
   withCredentials: true,
 });
